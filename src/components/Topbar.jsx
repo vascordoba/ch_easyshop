@@ -1,29 +1,36 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
-import MenuIcon from "@mui/icons-material/Menu";
+import React from "react";
+import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 
-export default function Topbar(props) {
+const brands = ["Apple", "Huawei", "LG", "Motorola", "Nokia", "Samsung", "TCL"];
+
+export default function Topbar() {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          {props.children}
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
+    <Navbar
+      collapseOnSelect
+      expand="md"
+      bg="light"
+      variant="light"
+      sticky="top"
+    >
+      <Container>
+        <Navbar.Brand href="#home">EasyCellShop</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link>Home</Nav.Link>
+            <NavDropdown title="Brands" id="collasible-nav-dropdown">
+              {brands.map((brand) => (
+                <NavDropdown.Item href="#">{brand}</NavDropdown.Item>
+              ))}
+            </NavDropdown>
+            <NavDropdown title="My profile" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#config">Settings</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#">Log out</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
