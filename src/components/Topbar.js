@@ -1,7 +1,19 @@
 import React from "react";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
+import "@assets/css/styles.css";
+import iconLogo from "@assets/img/icon-logo.png";
+import TopbarCart from "@components/TopbarCart";
 
-const brands = ["Apple", "Huawei", "LG", "Motorola", "Nokia", "Samsung", "TCL"];
+const brands = [
+  "ALL",
+  "Apple",
+  "Huawei",
+  "LG",
+  "Motorola",
+  "Nokia",
+  "Samsung",
+  "TCL",
+];
 
 export default function Topbar() {
   return (
@@ -13,11 +25,16 @@ export default function Topbar() {
       sticky="top"
     >
       <Container>
-        <Navbar.Brand href="#home">EasyCellShop</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img src={iconLogo} alt="EasyCellShop" width="40" /> EasyCellShop
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link>Home</Nav.Link>
+            <Nav.Link>
+              <TopbarCart />
+            </Nav.Link>
             <NavDropdown title="Brands" id="collasible-nav-dropdown">
               {brands.map((brand) => (
                 <NavDropdown.Item href="#">{brand}</NavDropdown.Item>
