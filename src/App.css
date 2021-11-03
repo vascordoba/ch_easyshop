@@ -13,15 +13,19 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-cart {
+  /*background-color: #282c34;*/
+  background-color: rgb(240, 240, 240);
+  min-height: 1vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  row-gap: 10px;
+  column-gap: 25px;
+  /*align-items: center;
+  justify-content: center;*/
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #aaaaaa;
 }
 
 .App-link {
