@@ -5,6 +5,7 @@ import Alert from "@components/Alert";
 
 function MainCart(props) {
   const { products, brandFilter, onAddToCart, alerts } = props;
+  console.log("CART PRODS", products);
   const [notification, setNots] = useState([]);
 
   useEffect(() => {
@@ -23,7 +24,11 @@ function MainCart(props) {
       <main className="main-cart">
         {brandFilter.length > 0
           ? products.map((prod) => {
-              return brandFilter.find((bf) => bf === prod.brand) ? <MainCartProduct key={prod.id} item={prod} /> : "";
+              return brandFilter.find((bf) => bf === prod.brand) ? (
+                <MainCartProduct key={prod.id} item={prod} onAddToCart={onAddToCart} />
+              ) : (
+                ""
+              );
             })
           : products.map((prod) => <MainCartProduct key={prod.id} item={prod} onAddToCart={onAddToCart} />)}
       </main>

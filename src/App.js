@@ -1,6 +1,6 @@
 import "./App.css";
 import "@assets/css/styles.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row, Toast } from "react-bootstrap";
 import Topbar from "@components/Topbar";
 import MainCart from "@components/MainCart";
@@ -14,6 +14,7 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0.0);
   const [alerts, setAlerts] = useState([]);
   const [alertId, setAlertId] = useState(1);
+  const [prods, setProds] = useState([]);
 
   const handleFilterBrand = (e) => {
     //clear all brand filters
@@ -96,12 +97,28 @@ function App() {
     console.log("TOTAL", tempTotal);
   };
 
+  useEffect(() => {
+    let emptyProds = [];
+    for (let i = 0; i < 10; i++) emptyProds.push({ id: i, name: "loading" });
+    const loadProducts = (timeout, prodsArray) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(prodsArray), timeout);
+      });
+    };
+    loadProducts(0, emptyProds)
+      .then((r) => setProds(r))
+      .then(() => loadProducts(3000, []))
+      .then((r) => setProds(r))
+      .then(() => loadProducts(0, products))
+      .then((r) => setProds(r));
+  }, []);
+
   return (
     <Container fluid className="main-app">
       <Topbar onFilterBrand={handleFilterBrand} brands={brands} brandFilter={brandFilter} cart={productCart} />
       <Row>
         <Col>
-          <MainCart products={products} brandFilter={brandFilter} onAddToCart={handleAddToCart} alerts={alerts} />
+          <MainCart products={prods} brandFilter={brandFilter} onAddToCart={handleAddToCart} alerts={alerts} />
         </Col>
       </Row>
     </Container>
