@@ -1,0 +1,569 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone SE",
+    "brand": "Apple",
+    "price": 699.0,
+    "stock": 10,
+    "img": "apple_iphoneSE.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 2,
+    "name": "iPhone 11",
+    "brand": "Apple",
+    "price": 799.0,
+    "stock": 10,
+    "img": "apple_iphone11.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 3,
+    "name": "iPhone 12",
+    "brand": "Apple",
+    "price": 899.0,
+    "stock": 10,
+    "img": "apple_iphone12.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 4,
+    "name": "iPhone 13",
+    "brand": "Apple",
+    "price": 999.0,
+    "stock": 10,
+    "img": "apple_iphone13.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 5,
+    "name": "iPhone 13 Mini",
+    "brand": "Apple",
+    "price": 899.0,
+    "stock": 10,
+    "img": "apple_iphone13_mini.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 6,
+    "name": "iPhone 13 Pro",
+    "brand": "Apple",
+    "price": 1099.0,
+    "stock": 10,
+    "img": "apple_iphone13_pro.jpg",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 7,
+    "name": "P40 Pro",
+    "brand": "Huawei",
+    "price": 799.0,
+    "stock": 10,
+    "img": "huawei_p40pro.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 8,
+    "name": "P30 Pro",
+    "brand": "Huawei",
+    "price": 699.0,
+    "stock": 10,
+    "img": "huawei_p30pro.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 9,
+    "name": "Mate40 Pro",
+    "brand": "Huawei",
+    "price": 799.0,
+    "stock": 10,
+    "img": "huawei_mate40pro.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 10,
+    "name": "Q60",
+    "brand": "LG",
+    "price": 699.0,
+    "stock": 10,
+    "img": "lg_q60.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 11,
+    "name": "K62",
+    "brand": "LG",
+    "price": 599.0,
+    "stock": 10,
+    "img": "lg_k62.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 12,
+    "name": "Velvet",
+    "brand": "LG",
+    "price": 799.0,
+    "stock": 10,
+    "img": "lg_velvet.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 13,
+    "name": "Edge",
+    "brand": "Motorola",
+    "price": 899.0,
+    "stock": 10,
+    "img": "motorola_edge.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 14,
+    "name": "G100",
+    "brand": "Motorola",
+    "price": 899.0,
+    "stock": 10,
+    "img": "motorola_g100.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 15,
+    "name": "Z3",
+    "brand": "Motorola",
+    "price": 699.0,
+    "stock": 10,
+    "img": "motorola_z3.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 16,
+    "name": "7.4",
+    "brand": "Nokia",
+    "price": 599.0,
+    "stock": 10,
+    "img": "nokia_74.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 17,
+    "name": "2.4",
+    "brand": "Nokia",
+    "price": 499.0,
+    "stock": 10,
+    "img": "nokia_24.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 18,
+    "name": "2.3",
+    "brand": "Nokia",
+    "price": 399.0,
+    "stock": 10,
+    "img": "nokia_23.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 19,
+    "name": "106",
+    "brand": "Nokia",
+    "price": 199.0,
+    "stock": 10,
+    "img": "nokia_106.webp",
+    "category": 1
+  },
+  {
+    "id": 20,
+    "name": "Galaxy zFlip 3",
+    "brand": "Samsung",
+    "price": 899.0,
+    "stock": 10,
+    "img": "samsung_zflip3.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 21,
+    "name": "Galaxy zFold 3",
+    "brand": "Samsung",
+    "price": 999.0,
+    "stock": 10,
+    "img": "samsung_zfold3.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 22,
+    "name": "Galaxy S21",
+    "brand": "Samsung",
+    "price": 999.0,
+    "stock": 10,
+    "img": "samsung_s21.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 23,
+    "name": "Galaxy S20",
+    "brand": "Samsung",
+    "price": 899.0,
+    "stock": 10,
+    "img": "samsung_s20.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 24,
+    "name": "Galaxy Note20",
+    "brand": "Samsung",
+    "price": 999.0,
+    "stock": 10,
+    "img": "samsung_note20.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 25,
+    "name": "20SE",
+    "brand": "TCL",
+    "price": 599.0,
+    "stock": 10,
+    "img": "tcl_20se.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 26,
+    "name": "10",
+    "brand": "TCL",
+    "price": 499.0,
+    "stock": 10,
+    "img": "tcl_10.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 27,
+    "name": "L9S",
+    "brand": "TCL",
+    "price": 399.0,
+    "stock": 10,
+    "img": "tcl_l9s.webp",
+    "details": {
+      "Screen size": "5.5\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "160mm",
+      "Width": "74mm",
+      "Depth": "7mm"
+    },
+    "category": 1
+  },
+  {
+    "id": 28,
+    "name": "iPad Pro 12",
+    "brand": "Apple",
+    "price": 1299.0,
+    "stock": 10,
+    "img": "apple-ipad-pro.png",
+    "details": {
+      "Screen size": "12\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "290mm",
+      "Width": "180mm",
+      "Depth": "7mm"
+    },
+    "category": 2
+  },
+  {
+    "id": 29,
+    "name": "iPad Air",
+    "brand": "Apple",
+    "price": 1099.0,
+    "stock": 10,
+    "img": "apple-ipad-air.png",
+    "details": {
+      "Screen size": "10\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "250mm",
+      "Width": "150mm",
+      "Depth": "7mm"
+    },
+    "category": 2
+  },
+  {
+    "id": 30,
+    "name": "iPad Mini",
+    "brand": "Apple",
+    "price": 899.0,
+    "stock": 10,
+    "img": "apple-ipad-mini.png",
+    "details": {
+      "Screen size": "8\"",
+      "Storage": "64 GB",
+      "OS Version": "iOS 14",
+      "Wieght": "240 grs",
+      "Height": "230mm",
+      "Width": "140mm",
+      "Depth": "7mm"
+    },
+    "category": 2
+  },
+  {
+    "id": 31,
+    "name": "Tab S7",
+    "brand": "Samsung",
+    "price": 1099.0,
+    "stock": 10,
+    "img": "samsung-tab-s7.png",
+    "details": {
+      "Screen size": "11\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "270mm",
+      "Width": "160mm",
+      "Depth": "7mm"
+    },
+    "category": 2
+  },
+  {
+    "id": 32,
+    "name": "Tab A7",
+    "brand": "Samsung",
+    "price": 899.0,
+    "stock": 10,
+    "img": "samsung-tab-a7.png",
+    "details": {
+      "Screen size": "7\"",
+      "Storage": "64 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "230mm",
+      "Width": "130mm",
+      "Depth": "7mm"
+    },
+    "category": 2
+  }
+]

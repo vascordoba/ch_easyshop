@@ -13,6 +13,11 @@
   }
 }
 
+.main-app {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .main-cart {
   /*background-color: #282c34;*/
   background-color: rgb(240, 240, 240);

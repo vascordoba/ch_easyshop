@@ -1,20 +1,22 @@
 import "./App.css";
-import "@assets/css/styles.css";
 import React, { useState, useEffect } from "react";
-import { Col, Container, Row, Toast } from "react-bootstrap";
-import Topbar from "@components/Topbar";
-import MainCart from "@components/MainCart";
+import { Col, Container, Row } from "react-bootstrap";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import brands from "@assets/files/brands.json";
-import products from "@assets/files/products.json";
+import { getBrands, getCategories } from "./utils/services";
+
+import Topbar from "@components/layout/Topbar";
+import Catalog from "@components/catalog/Catalog";
+import Cart from "@components/cart/Cart";
+import ProductDetail from "@components/catalog/ProductDetail";
 
 function App() {
   const [brandFilter, setBrandFilter] = useState([]);
   const [productCart, setProductCart] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0.0);
   const [alerts, setAlerts] = useState([]);
   const [alertId, setAlertId] = useState(1);
-  const [prods, setProds] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const handleFilterBrand = (e) => {
     //clear all brand filters
@@ -89,39 +91,68 @@ function App() {
       ]);
       setAlertId(alertId + 1);
     }
-    let tempTotal = 0.0;
-    for (const prodInCart of productCart) {
-      tempTotal += parseFloat(prodInCart.price) * parseInt(prodInCart.q);
-    }
-    setCartTotal(tempTotal);
-    console.log("TOTAL", tempTotal);
   };
 
+  //load brands globally
   useEffect(() => {
-    let emptyProds = [];
-    for (let i = 0; i < 10; i++) emptyProds.push({ id: i, name: "loading" });
-    const loadProducts = (timeout, prodsArray) => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(prodsArray), timeout);
-      });
+    const fetchBrands = async () => {
+      const newBrands = await getBrands();
+      setBrands(newBrands);
     };
-    loadProducts(0, emptyProds)
-      .then((r) => setProds(r))
-      .then(() => loadProducts(3000, []))
-      .then((r) => setProds(r))
-      .then(() => loadProducts(0, products))
-      .then((r) => setProds(r));
+    fetchBrands();
+  }, []);
+
+  //load categories globally
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const newCats = await getCategories();
+      setCategories(newCats);
+    };
+    fetchCategories();
   }, []);
 
   return (
-    <Container fluid className="main-app">
-      <Topbar onFilterBrand={handleFilterBrand} brands={brands} brandFilter={brandFilter} cart={productCart} />
-      <Row>
-        <Col>
-          <MainCart products={prods} brandFilter={brandFilter} onAddToCart={handleAddToCart} alerts={alerts} />
-        </Col>
-      </Row>
-    </Container>
+    <BrowserRouter>
+      <Container fluid className="main-app">
+        <Topbar
+          onFilterBrand={handleFilterBrand}
+          brands={brands}
+          brandFilter={brandFilter}
+          cart={productCart}
+          categories={categories}
+        />
+        <Row>
+          <Col>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Catalog
+                    brandFilter={brandFilter}
+                    onAddToCart={handleAddToCart}
+                    alerts={alerts}
+                    onCatalogUnmount={setAlerts}
+                  />
+                }
+              />
+              <Route
+                path={"/category/:categoryId"}
+                element={
+                  <Catalog
+                    brandFilter={brandFilter}
+                    onAddToCart={handleAddToCart}
+                    alerts={alerts}
+                    onCatalogUnmount={setAlerts}
+                  />
+                }
+              />
+              <Route path="/detail/:prodId" element={<ProductDetail onAddToCart={handleAddToCart} />} />
+              <Route path="/cart" element={<Cart productsAdded={productCart} />} />
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+    </BrowserRouter>
   );
 }
 
