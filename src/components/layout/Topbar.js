@@ -1,13 +1,32 @@
-import React from "react";
-import { Nav, Navbar, Container, NavDropdown, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Nav, Navbar, Container, NavDropdown, Form, ToastContainer } from "react-bootstrap";
 import "@assets/css/main.css";
 import iconLogo from "@assets/img/icon-logo.png";
 import TopbarCart from "@components/cart/TopbarCart";
+import Alert from "@components/notifications/Alert";
 import { BsCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 export default function Topbar(props) {
-  const { onFilterBrand, brands, brandFilter, cart, categories } = props;
+  const { onFilterBrand, brands, brandFilter, cart, categories, alerts, onCatalogUnmount } = props;
+
+  const [notification, setNots] = useState([]);
+
+  //show alerts
+  useEffect(() => {
+    let tempNots = [];
+    for (const alert of alerts) {
+      tempNots.push(<Alert alert={alert} key={alert.id} />);
+    }
+    setNots(tempNots);
+  }, [alerts]);
+
+  //clean alerts array
+  useEffect(() => {
+    return () => {
+      onCatalogUnmount([]);
+    };
+  }, []);
 
   return (
     <Navbar collapseOnSelect expand="md" bg="light" variant="light" sticky="top">
@@ -67,6 +86,9 @@ export default function Topbar(props) {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <ToastContainer className="position-fixed top-0 start-50" style={{ zIndex: 2000 }}>
+        {notification}
+      </ToastContainer>
     </Navbar>
   );
 }

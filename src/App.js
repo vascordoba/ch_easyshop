@@ -38,13 +38,13 @@ function App() {
     }
   };
 
-  const handleAddToCart = (prod) => {
+  const handleAddToCart = (prod, q) => {
     const prodInCart = productCart.find((p) => p.id === prod.id);
-    //if prod in cart, add 1 to the quantity
+    //if prod in cart, add q to the quantity
     if (prodInCart) {
-      // add 1 more if the stock of the product is ok
-      if (prodInCart.q + 1 <= prod.stock) {
-        prodInCart.q++;
+      // add q more if the stock of the product is ok
+      if (prodInCart.q + q <= prod.stock) {
+        prodInCart.q += q;
         const filteredCart = productCart.filter((p) => p.id !== prod.id);
         setProductCart([...filteredCart, prodInCart]);
         setAlerts([
@@ -53,7 +53,7 @@ function App() {
             id: alertId,
             type: "success",
             title: "Added to cart",
-            body: "You just added another " + prod.name + " to your cart",
+            body: "You just added " + q + " units of " + prod.name + " to your cart",
           },
         ]);
         setAlertId(alertId + 1);
@@ -64,7 +64,7 @@ function App() {
             id: alertId,
             type: "danger",
             title: "Can't add to cart",
-            body: prod.name + " is out of stock",
+            body: prod.name + " stock is not enough",
           },
         ]);
         setAlertId(alertId + 1);
@@ -77,7 +77,7 @@ function App() {
         name: prod.name,
         brand: prod.brand,
         price: prod.price,
-        q: 1,
+        q: q,
       };
       setProductCart([...productCart, newProd]);
       setAlerts([
@@ -86,11 +86,19 @@ function App() {
           id: alertId,
           type: "success",
           title: "Added to cart",
-          body: "You just added a new " + prod.name + " to your cart",
+          body: "You just added " + q + " units of " + prod.name + " to your cart",
         },
       ]);
       setAlertId(alertId + 1);
     }
+  };
+
+  const handleGetQuantityFromCart = (prodId) => {
+    if (productCart.length > 0) {
+      const prodAdded = productCart.find((p) => p.id === prodId);
+      if (prodAdded && prodAdded.q) return prodAdded.q;
+    }
+    return 0;
   };
 
   //load brands globally
@@ -120,6 +128,8 @@ function App() {
           brandFilter={brandFilter}
           cart={productCart}
           categories={categories}
+          alerts={alerts}
+          onCatalogUnmount={setAlerts}
         />
         <Row>
           <Col>
@@ -130,8 +140,7 @@ function App() {
                   <Catalog
                     brandFilter={brandFilter}
                     onAddToCart={handleAddToCart}
-                    alerts={alerts}
-                    onCatalogUnmount={setAlerts}
+                    onCheckCartQuantity={handleGetQuantityFromCart}
                   />
                 }
               />
@@ -141,8 +150,7 @@ function App() {
                   <Catalog
                     brandFilter={brandFilter}
                     onAddToCart={handleAddToCart}
-                    alerts={alerts}
-                    onCatalogUnmount={setAlerts}
+                    onCheckCartQuantity={handleGetQuantityFromCart}
                   />
                 }
               />
