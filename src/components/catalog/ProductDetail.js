@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Card, Placeholder, Table, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { getProduct } from "@utils/services";
-import { Link } from "react-router-dom";
+import ProductCount from "@components/catalog/ProductCount";
+import { Link, useLocation } from "react-router-dom";
 
 const placeHolder = { id: 0 };
 const placeHolderNotFound = {
@@ -17,8 +18,16 @@ const placeHolderNotFound = {
 
 export default function ProductDetail(props) {
   const { prodId } = useParams();
+
   const imgUrl = window.location.origin + "/assets/imgs/";
   const [item, setItem] = useState(placeHolder);
+
+  const useQuery = () => {
+    const { search } = useLocation();
+    return React.useMemo(() => new URLSearchParams(search), [search]);
+  };
+
+  const q = useQuery();
 
   //load product by id
   useEffect(() => {
@@ -74,12 +83,13 @@ export default function ProductDetail(props) {
             ""
           )}
         </Card.Body>
-        <Card.Footer className="text-muted">
+        <Card.Footer className="text-muted" style={{ minWidth: "13%" }}>
           <Link to="/">
             <Button size="sm" variant="secondary">
               Back
             </Button>
           </Link>
+          <ProductCount item={item} cantFromCart={q.get("q")} />
         </Card.Footer>
       </Card>
     );
