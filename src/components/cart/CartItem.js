@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Card } from "react-bootstrap";
 
@@ -8,7 +9,9 @@ function CartItem(props) {
   return (
     <Card className="text-start" style={{ marginBottom: 20 }}>
       <Card.Header>
-        {prod.brand} {prod.name}{" "}
+        <Link to={"/detail/" + prod.id + "?q=" + prod.q}>
+          {prod.brand} {prod.name}
+        </Link>
       </Card.Header>
       <Card.Body>
         <Card.Title>Price: ${prod.price}</Card.Title>

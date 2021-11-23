@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CartContext from "@context/CartContext";
 
 export default function ProductCount(props) {
+  const { addToCart } = useContext(CartContext);
+
   const { item, cantFromCart } = props;
   const [count, setCount] = useState(cantFromCart ? parseInt(cantFromCart) : 0);
-  const [finalCount, setFinalCount] = useState(0);
   const [addVisible, setAddVisible] = useState(parseInt(cantFromCart) > 0);
   const [showCheckout, setShowCheckout] = useState(false);
 
@@ -16,8 +18,8 @@ export default function ProductCount(props) {
     }
   };
 
-  const handleAddToCart = () => {
-    setFinalCount(count);
+  const handleAddToCart = (item) => {
+    addToCart(item, count, true);
     setShowCheckout(true);
   };
 
@@ -56,7 +58,7 @@ export default function ProductCount(props) {
             size="sm"
             variant="primary"
             style={{ display: addVisible ? "block" : "none", marginTop: 10 }}
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart(item)}
           >
             Add to cart
           </Button>

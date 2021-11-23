@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Nav, Navbar, Container, NavDropdown, Form, ToastContainer } from "react-bootstrap";
 import "@assets/css/main.css";
 import iconLogo from "@assets/img/icon-logo.png";
-import TopbarCart from "@components/cart/TopbarCart";
-import Alert from "@components/notifications/Alert";
 import { BsCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
+import AlertContext from "@context/AlertContext";
+import TopbarCart from "@components/cart/TopbarCart";
+import Alert from "@components/notifications/Alert";
+
 export default function Topbar(props) {
-  const { onFilterBrand, brands, brandFilter, cart, categories, alerts, onCatalogUnmount } = props;
+  const { alerts, clearAlerts } = useContext(AlertContext);
+  const { onFilterBrand, brands, brandFilter, categories } = props;
 
   const [notification, setNots] = useState([]);
 
@@ -24,7 +27,7 @@ export default function Topbar(props) {
   //clean alerts array
   useEffect(() => {
     return () => {
-      onCatalogUnmount([]);
+      clearAlerts();
     };
   }, []);
 
@@ -46,7 +49,7 @@ export default function Topbar(props) {
               </Nav.Link>
             ))}
             <Nav.Link as={Link} to="/cart">
-              <TopbarCart cart={cart} />
+              <TopbarCart />
             </Nav.Link>
             <Form>
               <NavDropdown title="Brands" id="collasible-nav-dropdown">

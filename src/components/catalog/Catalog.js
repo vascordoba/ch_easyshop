@@ -8,7 +8,7 @@ import { getProducts } from "@utils/services";
 const placeHolders = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
 function Catalog(props) {
-  const { brandFilter, onAddToCart, onCheckCartQuantity } = props;
+  const { brandFilter } = props;
   const [prods, setProds] = useState(placeHolders);
 
   const { categoryId } = useParams();
@@ -32,14 +32,7 @@ function Catalog(props) {
         {prods.map((prod) => {
           //render placeholders
           if (typeof prod.brand === "undefined" || typeof prod.category === "undefined") {
-            return (
-              <CatalogItem
-                key={prod.id}
-                item={prod}
-                onAddToCart={onAddToCart}
-                onCheckCartQuantity={onCheckCartQuantity}
-              />
-            );
+            return <CatalogItem key={prod.id} item={prod} />;
           }
           //render products filtered by brand and categoty
           else if (
@@ -47,28 +40,14 @@ function Catalog(props) {
             brandFilter.includes(prod.brand) &&
             (!categoryId || (categoryId && prod.category === parseInt(categoryId)))
           ) {
-            return (
-              <CatalogItem
-                key={prod.id}
-                item={prod}
-                onAddToCart={onAddToCart}
-                onCheckCartQuantity={onCheckCartQuantity}
-              />
-            );
+            return <CatalogItem key={prod.id} item={prod} />;
           }
           //render products filtered by categoty
           else if (
             brandFilter.length === 0 &&
             (!categoryId || (categoryId && prod.category === parseInt(categoryId)))
           ) {
-            return (
-              <CatalogItem
-                key={prod.id}
-                item={prod}
-                onAddToCart={onAddToCart}
-                onCheckCartQuantity={onCheckCartQuantity}
-              />
-            );
+            return <CatalogItem key={prod.id} item={prod} />;
           }
           return "";
         })}

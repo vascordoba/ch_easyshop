@@ -69,16 +69,14 @@ export default function ProductDetail(props) {
           <Card.Subtitle>{item.name}</Card.Subtitle>
           <Card.Text>$ {item.price}</Card.Text>
           {item.details ? (
-            <Card.Text>
-              <Table striped bordered hover size="sm" responsive style={{ width: "50%" }}>
-                <thead>
-                  <tr>
-                    <th colspan="2">Specs</th>
-                  </tr>
-                </thead>
-                <tbody>{renderDet()}</tbody>
-              </Table>
-            </Card.Text>
+            <Table striped bordered hover size="sm" responsive style={{ width: "50%" }}>
+              <thead>
+                <tr>
+                  <th colSpan="2">Specs</th>
+                </tr>
+              </thead>
+              <tbody>{renderDet()}</tbody>
+            </Table>
           ) : (
             ""
           )}
@@ -111,44 +109,42 @@ export default function ProductDetail(props) {
           <Placeholder as={Card.Text} animation="glow">
             <Placeholder xs={6} />
           </Placeholder>
-          <Card.Text>
-            <Table striped bordered hover size="sm" responsive style={{ width: "50%" }}>
-              <thead>
-                <tr>
-                  <th colspan="2">
-                    <Placeholder xs={12} />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <Placeholder xs={12} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Placeholder xs={12} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Placeholder xs={12} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Placeholder xs={12} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Placeholder xs={12} />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Card.Text>
+          <Table striped bordered hover size="sm" responsive style={{ width: "50%" }}>
+            <thead>
+              <tr>
+                <th colSpan="2">
+                  <Placeholder xs={12} />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <Placeholder xs={12} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Placeholder xs={12} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Placeholder xs={12} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Placeholder xs={12} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Placeholder xs={12} />
+                </td>
+              </tr>
+            </tbody>
+          </Table>
         </Card.Body>
       </Card>
     );

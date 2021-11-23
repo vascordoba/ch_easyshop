@@ -5,6 +5,7 @@ module.exports = function override(config) {
     "@components": "src/components",
     "@assets": "src/assets",
     "@utils": "src/utils",
+    "@context": "src/context",
   })(config);
 
   return config;

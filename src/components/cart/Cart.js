@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import CartItem from "@components/cart/CartItem";
+import { CartConsumer } from "@context/CartContext";
 
-function Cart(props) {
-  const { productsAdded } = props;
-
+function Cart() {
   const getCartTotalAmount = (prods) => {
     let total = 0.0;
     prods.map((prod) => (total += parseFloat(prod.q * prod.price)));
@@ -14,10 +13,18 @@ function Cart(props) {
   return (
     <main className="cart">
       <h4>Items in cart</h4>
-      {productsAdded.map((prod) => (
-        <CartItem prod={prod} key={prod.id} />
-      ))}
-      <h5 style={{ marginTop: 20 }}>Total to pay: ${getCartTotalAmount(productsAdded)}</h5>
+      <CartConsumer>
+        {({ cart }) => {
+          return (
+            <>
+              {cart.map((prod) => (
+                <CartItem prod={prod} key={prod.id} />
+              ))}
+              <h5 style={{ marginTop: 20 }}>Total to pay: ${getCartTotalAmount(cart)}</h5>;
+            </>
+          );
+        }}
+      </CartConsumer>
     </main>
   );
 }

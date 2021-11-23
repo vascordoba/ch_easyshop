@@ -1,22 +1,18 @@
 import React from "react";
+import { Badge } from "react-bootstrap";
 import { BsCart2 } from "react-icons/bs";
+import { CartConsumer } from "@context/CartContext";
 
 function TopbarCart(props) {
-  const { cart } = props;
-
-  const countCartProds = (cart) => {
-    let total = 0;
-    for (const prod of cart) {
-      total += prod.q;
-    }
-    return total;
-  };
-
   return (
-    <>
-      <BsCart2 />
-      <span> {countCartProds(cart)}</span>
-    </>
+    <CartConsumer>
+      {({ itemsCount }) => (
+        <>
+          <BsCart2 />
+          {itemsCount() > 0 ? <Badge> {itemsCount()}</Badge> : ""}
+        </>
+      )}
+    </CartConsumer>
   );
 }
 
