@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 import CartItem from "@components/cart/CartItem";
 import { CartConsumer } from "@context/CartContext";
@@ -12,15 +13,24 @@ function Cart() {
 
   return (
     <main className="cart">
-      <h4>Items in cart</h4>
       <CartConsumer>
-        {({ cart }) => {
+        {({ cart, removeFromCart, emptyCart }) => {
           return (
             <>
+              <h4>
+                Items in cart{" "}
+                {cart.length > 0 ? (
+                  <Button size="sm" onClick={() => emptyCart()}>
+                    Empty cart
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </h4>
               {cart.map((prod) => (
-                <CartItem prod={prod} key={prod.id} />
+                <CartItem prod={prod} key={prod.id} onRemoveFromCart={removeFromCart} />
               ))}
-              <h5 style={{ marginTop: 20 }}>Total to pay: ${getCartTotalAmount(cart)}</h5>;
+              <h5 style={{ marginTop: 20 }}>Total to pay: ${getCartTotalAmount(cart)}</h5>
             </>
           );
         }}

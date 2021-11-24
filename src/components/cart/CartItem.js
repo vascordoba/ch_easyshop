@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 function CartItem(props) {
-  const { prod } = props;
+  const { prod, onRemoveFromCart } = props;
 
   return (
     <Card className="text-start" style={{ marginBottom: 20 }}>
@@ -17,7 +17,12 @@ function CartItem(props) {
         <Card.Title>Price: ${prod.price}</Card.Title>
         <Card.Text>Quantity: {prod.q} units</Card.Text>
       </Card.Body>
-      <Card.Footer className="text-muted">Sub total: ${parseFloat(prod.price * prod.q).toFixed(2)}</Card.Footer>
+      <Card.Footer className="text-muted">
+        Sub total: ${parseFloat(prod.price * prod.q).toFixed(2)}&nbsp;
+        <Button size="sm" onClick={() => onRemoveFromCart(prod.id)}>
+          Remove from cart
+        </Button>
+      </Card.Footer>
     </Card>
   );
 }

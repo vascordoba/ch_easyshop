@@ -75,8 +75,22 @@ export const CartProvider = ({ defaultValue, children }) => {
     return result;
   }
 
+  function removeFromCart(id) {
+    if (cart && cart.length) {
+      let newCart = cart.filter((o) => o.id !== id);
+      if (newCart === undefined) newCart = [];
+      setCart(newCart);
+      return true;
+    }
+    return false;
+  }
+
+  function emptyCart() {
+    setCart([]);
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, isInCart, getQProduct, itemsCount }}>
+    <CartContext.Provider value={{ cart, addToCart, isInCart, getQProduct, itemsCount, removeFromCart, emptyCart }}>
       {children}
     </CartContext.Provider>
   );
