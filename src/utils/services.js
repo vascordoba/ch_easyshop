@@ -1,24 +1,23 @@
-import { get, post } from "./rest";
+//local file services
+//import services from "./files";
+
+//cloud firebase services
+import services from "./firebase";
 
 const getProducts = async () => {
-  const url = "/assets/files/products.json";
-  return await get(url);
+  return await services.getProducts();
 };
 
 const getProduct = async (id) => {
-  const url = "/assets/files/products.json";
-  const result = await get(url);
-  return result.filter((res) => res.id === parseInt(id));
+  return await services.getProduct(id);
 };
 
 const getBrands = async () => {
-  const url = "/assets/files/brands.json";
-  return await get(url);
+  return await services.getBrands();
 };
 
 const getCategories = async () => {
-  const url = "/assets/files/categories.json";
-  return await get(url);
+  return await services.getCategories();
 };
 
 export { getProducts, getProduct, getBrands, getCategories };

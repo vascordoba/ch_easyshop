@@ -12,7 +12,6 @@ import Alert from "@components/notifications/Alert";
 export default function Topbar(props) {
   const { alerts, clearAlerts } = useContext(AlertContext);
   const { onFilterBrand, brands, brandFilter, categories } = props;
-
   const [notification, setNots] = useState([]);
 
   //show alerts
@@ -55,15 +54,15 @@ export default function Topbar(props) {
               <NavDropdown title="Brands" id="collasible-nav-dropdown">
                 {brands.map((brand, idx) => (
                   <NavDropdown.Item
-                    key={brand}
-                    id={`brand-${brand}`}
+                    key={idx}
+                    id={`brand-${brand.id}`}
                     onClick={(e) => {
                       e.preventDefault();
                       e.target.checked = !e.target.checked;
                       onFilterBrand(e);
                     }}
                   >
-                    {brand} {brandFilter.find((bf) => bf === brand) ? <BsCheck id={`brand-${brand}`} /> : ""}
+                    {brand.name} {brandFilter.find((bf) => bf === brand.id) ? <BsCheck id={`brand-${brand.id}`} /> : ""}
                   </NavDropdown.Item>
                 ))}
                 <NavDropdown.Item

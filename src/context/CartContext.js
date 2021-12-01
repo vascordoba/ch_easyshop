@@ -49,10 +49,12 @@ export const CartProvider = ({ defaultValue, children }) => {
     const inCart = isInCart(id);
     if (inCart) {
       const objInCart = getProduct(id);
-      objInCart.q++;
-      const filteredCart = cart.filter((p) => p.id !== id);
-      setCart([...filteredCart, objInCart]);
-      itemsCount();
+      if (objInCart.q + 1 <= objInCart.stock) {
+        objInCart.q++;
+        const filteredCart = cart.filter((p) => p.id !== id);
+        setCart([...filteredCart, objInCart]);
+        itemsCount();
+      }
     }
   }
 
@@ -101,6 +103,8 @@ export const CartProvider = ({ defaultValue, children }) => {
           id: o.id,
           name: o.name,
           brand: o.brand,
+          brandName: o.brandName,
+          stock: o.stock,
           price: o.price,
           img: o.img,
           q: q,

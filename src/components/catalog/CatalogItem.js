@@ -19,7 +19,7 @@ export default function CatalogItem(props) {
           {({ cart, getQProduct, addToCart }) => {
             return (
               <Card.Body>
-                <Card.Title>{item.brand}</Card.Title>
+                <Card.Title>{item.brandName}</Card.Title>
                 <Card.Subtitle>{item.name}</Card.Subtitle>
                 <Card.Text>$ {item.price}</Card.Text>
                 <Link to={"/detail/" + item.id + "?q=" + getQProduct(item.id)}>

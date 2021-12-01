@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Placeholder, Table, Button } from "react-bootstrap";
 import { useParams } from "react-router";
-import { getProduct } from "@utils/services";
+import { getProduct, getBrands } from "@utils/services";
 import ProductCount from "@components/catalog/ProductCount";
 import { Link, useLocation } from "react-router-dom";
 
@@ -32,12 +32,13 @@ export default function ProductDetail(props) {
   //load product by id
   useEffect(() => {
     const fetchProduct = async (id) => {
-      let to = setTimeout(async () => {
-        const newProd = await getProduct(id);
-        if (newProd.length > 0) setItem(newProd[0]);
-        else setItem(placeHolderNotFound);
-        clearTimeout(to);
-      }, 1000);
+      const newProd = await getProduct(id);
+      const brands = await getBrands();
+      if (newProd) {
+        const brand = brands.find((b) => b.id === newProd.brand);
+        newProd.brandName = brand.name;
+        setItem(newProd);
+      } else setItem(placeHolderNotFound);
     };
     setItem(placeHolder);
     fetchProduct(prodId);
@@ -65,7 +66,7 @@ export default function ProductDetail(props) {
           style={{ height: 300, width: 175, marginLeft: 100, marginTop: 50, marginBottom: 200 }}
         />
         <Card.Body style={{ marginTop: 50, marginLeft: 50, marginRight: 50, width: "80%" }}>
-          <Card.Title>{item.brand}</Card.Title>
+          <Card.Title>{item.brandName}</Card.Title>
           <Card.Subtitle>{item.name}</Card.Subtitle>
           <Card.Text>$ {item.price}</Card.Text>
           {item.details ? (

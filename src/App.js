@@ -19,6 +19,7 @@ function App() {
 
   const handleFilterBrand = (e) => {
     //clear all brand filters
+    console.log("HANDLE FILTER", e);
     if (e === "CLEAR") {
       setBrandFilter([]);
     } else {
@@ -55,6 +56,10 @@ function App() {
     fetchCategories();
   }, []);
 
+  if (!brands && !categories) {
+    return <>Loading...</>;
+  }
+
   return (
     <BrowserRouter>
       <Container fluid className="main-app">
@@ -69,8 +74,11 @@ function App() {
             <Row>
               <Col>
                 <Routes>
-                  <Route path="/" element={<Catalog brandFilter={brandFilter} />} />
-                  <Route path={"/category/:categoryId"} element={<Catalog brandFilter={brandFilter} />} />
+                  <Route path="/" element={<Catalog brandFilter={brandFilter} brands={brands} />} />
+                  <Route
+                    path={"/category/:categoryId"}
+                    element={<Catalog brandFilter={brandFilter} brands={brands} />}
+                  />
                   <Route path="/detail/:prodId" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
                 </Routes>
