@@ -1,17 +1,16 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 import { CartConsumer } from "@context/CartContext";
 
 function CartSummary() {
   return (
     <CartConsumer>
-      {({ itemsCountProp, totalCart }) => (
+      {({ getItemsCount, totalCart }) => (
         <Card className="text-start" style={{ marginBottom: 20 }}>
           <Card.Header>Cart Summary</Card.Header>
           <Card.Body style={{ display: "flex", justifyContent: "space-around" }}>
-            Items count: {itemsCountProp} unit{itemsCountProp > 1 ? "s" : ""}
+            Items count: {getItemsCount()} unit{getItemsCount() > 1 ? "s" : ""}
           </Card.Body>
           <Card.Footer className="text-muted">
             Total: ${totalCart()}{" "}

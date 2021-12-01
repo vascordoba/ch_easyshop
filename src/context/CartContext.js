@@ -33,6 +33,14 @@ export const CartProvider = ({ defaultValue, children }) => {
     return total;
   }
 
+  function getItemsCount() {
+    let total = 0;
+    for (const prod of cart) {
+      total += parseInt(prod.q);
+    }
+    return total;
+  }
+
   function totalCart() {
     let total = 0.0;
     for (const prod of cart) {
@@ -132,7 +140,7 @@ export const CartProvider = ({ defaultValue, children }) => {
 
   function emptyCart() {
     setCart([]);
-    itemsCount();
+    setItemsC(0);
   }
 
   return (
@@ -148,7 +156,7 @@ export const CartProvider = ({ defaultValue, children }) => {
         addOneToCart,
         removeOneFromCart,
         totalCart,
-        itemsCountProp: itemsC,
+        getItemsCount,
       }}
     >
       {children}
