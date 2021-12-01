@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "iPhone SE",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 699.0,
@@ -18,7 +17,6 @@
     "category": 1
   },
   {
-    "id": 2,
     "name": "iPhone 11",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 799.0,
@@ -36,7 +34,6 @@
     "category": 1
   },
   {
-    "id": 3,
     "name": "iPhone 12",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 899.0,
@@ -54,7 +51,6 @@
     "category": 1
   },
   {
-    "id": 4,
     "name": "iPhone 13",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 999.0,
@@ -72,7 +68,6 @@
     "category": 1
   },
   {
-    "id": 5,
     "name": "iPhone 13 Mini",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 899.0,
@@ -90,7 +85,6 @@
     "category": 1
   },
   {
-    "id": 6,
     "name": "iPhone 13 Pro",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 1099.0,
@@ -108,7 +102,6 @@
     "category": 1
   },
   {
-    "id": 7,
     "name": "P40 Pro",
     "brand": "SBFWQapiPIa7SwzCLfG9",
     "price": 799.0,
@@ -126,7 +119,6 @@
     "category": 1
   },
   {
-    "id": 8,
     "name": "P30 Pro",
     "brand": "SBFWQapiPIa7SwzCLfG9",
     "price": 699.0,
@@ -144,7 +136,6 @@
     "category": 1
   },
   {
-    "id": 9,
     "name": "Mate40 Pro",
     "brand": "SBFWQapiPIa7SwzCLfG9",
     "price": 799.0,
@@ -162,7 +153,6 @@
     "category": 1
   },
   {
-    "id": 10,
     "name": "Q60",
     "brand": "y0m6ukpBJrHJLq2byEay",
     "price": 699.0,
@@ -180,7 +170,6 @@
     "category": 1
   },
   {
-    "id": 11,
     "name": "K62",
     "brand": "y0m6ukpBJrHJLq2byEay",
     "price": 599.0,
@@ -198,7 +187,6 @@
     "category": 1
   },
   {
-    "id": 12,
     "name": "Velvet",
     "brand": "y0m6ukpBJrHJLq2byEay",
     "price": 799.0,
@@ -216,7 +204,6 @@
     "category": 1
   },
   {
-    "id": 13,
     "name": "Edge",
     "brand": "VH9T797Hkno7oLrsTMlG",
     "price": 899.0,
@@ -234,7 +221,6 @@
     "category": 1
   },
   {
-    "id": 14,
     "name": "G100",
     "brand": "VH9T797Hkno7oLrsTMlG",
     "price": 899.0,
@@ -252,7 +238,6 @@
     "category": 1
   },
   {
-    "id": 15,
     "name": "Z3",
     "brand": "VH9T797Hkno7oLrsTMlG",
     "price": 699.0,
@@ -270,7 +255,6 @@
     "category": 1
   },
   {
-    "id": 16,
     "name": "7.4",
     "brand": "gN11xizP0FC3m2YSkKOV",
     "price": 599.0,
@@ -288,7 +272,6 @@
     "category": 1
   },
   {
-    "id": 17,
     "name": "2.4",
     "brand": "gN11xizP0FC3m2YSkKOV",
     "price": 499.0,
@@ -306,7 +289,6 @@
     "category": 1
   },
   {
-    "id": 18,
     "name": "2.3",
     "brand": "gN11xizP0FC3m2YSkKOV",
     "price": 399.0,
@@ -324,16 +306,23 @@
     "category": 1
   },
   {
-    "id": 19,
     "name": "106",
     "brand": "gN11xizP0FC3m2YSkKOV",
     "price": 199.0,
     "stock": 10,
     "img": "nokia_106.webp",
+    "details": {
+      "Screen size": "3.5\"",
+      "Storage": "8 GB",
+      "OS Version": "Android 11",
+      "Wieght": "240 grs",
+      "Height": "120mm",
+      "Width": "54mm",
+      "Depth": "7mm"
+    },
     "category": 1
   },
   {
-    "id": 20,
     "name": "Galaxy zFlip 3",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 899.0,
@@ -351,7 +340,6 @@
     "category": 1
   },
   {
-    "id": 21,
     "name": "Galaxy zFold 3",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 999.0,
@@ -369,7 +357,6 @@
     "category": 1
   },
   {
-    "id": 22,
     "name": "Galaxy S21",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 999.0,
@@ -387,7 +374,6 @@
     "category": 1
   },
   {
-    "id": 23,
     "name": "Galaxy S20",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 899.0,
@@ -405,7 +391,6 @@
     "category": 1
   },
   {
-    "id": 24,
     "name": "Galaxy Note20",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 999.0,
@@ -423,7 +408,6 @@
     "category": 1
   },
   {
-    "id": 25,
     "name": "20SE",
     "brand": "T2z9IBY4x3SQ1DuT6Zml",
     "price": 599.0,
@@ -441,7 +425,6 @@
     "category": 1
   },
   {
-    "id": 26,
     "name": "10",
     "brand": "T2z9IBY4x3SQ1DuT6Zml",
     "price": 499.0,
@@ -459,7 +442,6 @@
     "category": 1
   },
   {
-    "id": 27,
     "name": "L9S",
     "brand": "T2z9IBY4x3SQ1DuT6Zml",
     "price": 399.0,
@@ -477,7 +459,6 @@
     "category": 1
   },
   {
-    "id": 28,
     "name": "iPad Pro 12",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 1299.0,
@@ -495,7 +476,6 @@
     "category": 2
   },
   {
-    "id": 29,
     "name": "iPad Air",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 1099.0,
@@ -513,7 +493,6 @@
     "category": 2
   },
   {
-    "id": 30,
     "name": "iPad Mini",
     "brand": "LnT450BglWf3Nxqxzz8d",
     "price": 899.0,
@@ -531,7 +510,6 @@
     "category": 2
   },
   {
-    "id": 31,
     "name": "Tab S7",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 1099.0,
@@ -549,7 +527,6 @@
     "category": 2
   },
   {
-    "id": 32,
     "name": "Tab A7",
     "brand": "48Y5ZXGlPlbnTn2GEWWR",
     "price": 899.0,

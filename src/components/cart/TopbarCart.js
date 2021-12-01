@@ -6,11 +6,11 @@ import { CartConsumer } from "@context/CartContext";
 function TopbarCart(props) {
   return (
     <CartConsumer>
-      {({ itemsCount }) => {
-        return itemsCount() > 0 ? (
+      {({ itemsCountProp }) => {
+        return itemsCountProp > 0 ? (
           <>
             <BsCart2 />
-            <Badge> {itemsCount()}</Badge>
+            <Badge> {itemsCountProp}</Badge>
           </>
         ) : (
           ""

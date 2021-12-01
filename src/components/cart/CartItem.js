@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { Card, Button } from "react-bootstrap";
 
 function CartItem(props) {
@@ -11,7 +10,7 @@ function CartItem(props) {
     <Card className="text-start" style={{ marginBottom: 20 }}>
       <Card.Header>
         <Link to={"/detail/" + prod.id + "?q=" + prod.q}>
-          {prod.brand} {prod.name}
+          {prod.brandName} {prod.name}
         </Link>
       </Card.Header>
       <Card.Body style={{ display: "flex", justifyContent: "space-around" }}>
