@@ -6,17 +6,12 @@ import { CartConsumer } from "@context/CartContext";
 function TopbarCart(props) {
   return (
     <CartConsumer>
-      {({ getItemsCount }) => {
-        console.log("TOPCART ITEMS COUNT", getItemsCount());
-        return getItemsCount() > 0 ? (
-          <>
-            <BsCart2 />
-            <Badge> {getItemsCount()}</Badge>
-          </>
-        ) : (
-          ""
-        );
-      }}
+      {({ getItemsCount }) => (
+        <>
+          <BsCart2 />
+          {getItemsCount() > 0 ? <Badge>{getItemsCount()}</Badge> : ""}
+        </>
+      )}
     </CartConsumer>
   );
 }

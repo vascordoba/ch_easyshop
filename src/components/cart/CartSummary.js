@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 import { CartConsumer } from "@context/CartContext";
+import { Link } from "react-router-dom";
 
 function CartSummary() {
   return (
@@ -14,9 +15,9 @@ function CartSummary() {
           </Card.Body>
           <Card.Footer className="text-muted">
             Total: ${totalCart()}{" "}
-            <Button size="sm" onClick={() => alert("Items Purchased!")}>
-              Checkout
-            </Button>
+            <Link to="/checkout">
+              <Button size="sm">Checkout</Button>
+            </Link>
           </Card.Footer>
         </Card>
       )}

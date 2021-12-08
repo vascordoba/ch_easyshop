@@ -11,6 +11,7 @@ import Topbar from "@components/layout/Topbar";
 import Catalog from "@components/catalog/Catalog";
 import Cart from "@components/cart/Cart";
 import ProductDetail from "@components/catalog/ProductDetail";
+import CartCheckout from "@components/cart/CartCheckout";
 
 function App() {
   const [brandFilter, setBrandFilter] = useState([]);
@@ -19,7 +20,6 @@ function App() {
 
   const handleFilterBrand = (e) => {
     //clear all brand filters
-    console.log("HANDLE FILTER", e);
     if (e === "CLEAR") {
       setBrandFilter([]);
     } else {
@@ -81,6 +81,8 @@ function App() {
                   />
                   <Route path="/detail/:prodId" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<CartCheckout />} />
+                  <Route path="/orders" element={<CartCheckout />} />
                 </Routes>
               </Col>
             </Row>

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 
 import AlertContext from "@context/AlertContext";
+import { getUser, createUser, createOrder } from "../utils/services";
 const CartContext = createContext([]);
 
 export const CartProvider = ({ defaultValue, children }) => {
@@ -8,52 +9,49 @@ export const CartProvider = ({ defaultValue, children }) => {
   const [cart, setCart] = useState(defaultValue || []);
   const [itemsC, setItemsC] = useState(0);
 
-  function getProduct(id) {
+  const getProduct = (id) => {
     if (cart && cart.length) {
       const found = cart.find((o) => o.id === id);
       return found ? found : null;
     }
     return null;
-  }
+  };
 
-  function getQProduct(id) {
+  const getQProduct = (id) => {
     if (cart && cart.length) {
       const found = cart.find((o) => o.id === id);
       return found ? found.q : 0;
     }
     return 0;
-  }
+  };
 
-  function itemsCount() {
-    let total = 0;
-    for (const prod of cart) {
-      total += parseInt(prod.q);
-    }
+  const itemsCount = () => {
+    const total = getItemsCount();
     setItemsC(total);
     return total;
-  }
+  };
 
-  function getItemsCount() {
+  const getItemsCount = () => {
     let total = 0;
     for (const prod of cart) {
       total += parseInt(prod.q);
     }
     return total;
-  }
+  };
 
-  function totalCart() {
+  const totalCart = () => {
     let total = 0.0;
     for (const prod of cart) {
       total += parseFloat(prod.q * prod.price);
     }
     return total;
-  }
+  };
 
-  function isInCart(id) {
+  const isInCart = (id) => {
     return id === undefined ? false : getProduct(id) !== null;
-  }
+  };
 
-  function addOneToCart(id) {
+  const addOneToCart = (id) => {
     const inCart = isInCart(id);
     if (inCart) {
       const objInCart = getProduct(id);
@@ -64,9 +62,9 @@ export const CartProvider = ({ defaultValue, children }) => {
         itemsCount();
       }
     }
-  }
+  };
 
-  function removeOneFromCart(id) {
+  const removeOneFromCart = (id) => {
     const inCart = isInCart(id);
     if (inCart) {
       const objInCart = getProduct(id);
@@ -79,9 +77,9 @@ export const CartProvider = ({ defaultValue, children }) => {
       }
       itemsCount();
     }
-  }
+  };
 
-  function addToCart(o, q, replace = false) {
+  const addToCart = (o, q, replace = false) => {
     let result = {
       title: "Added to cart",
       type: "success",
@@ -125,9 +123,9 @@ export const CartProvider = ({ defaultValue, children }) => {
     }
     addAlert(result);
     return result;
-  }
+  };
 
-  function removeFromCart(id) {
+  const removeFromCart = (id) => {
     if (cart && cart.length) {
       let newCart = cart.filter((o) => o.id !== id);
       if (newCart === undefined) newCart = [];
@@ -136,12 +134,31 @@ export const CartProvider = ({ defaultValue, children }) => {
       return true;
     }
     return false;
-  }
+  };
 
-  function emptyCart() {
+  const emptyCart = () => {
     setCart([]);
     setItemsC(0);
-  }
+  };
+
+  const placeOrder = async (user) => {
+    let userRegistered = null;
+    const userExists = await getUser(user.email);
+
+    if (userExists.length === 0) {
+      userRegistered = await createUser(user);
+    } else {
+      userRegistered = userExists[0];
+    }
+    const order = {
+      date: new Date().toISOString().slice(0, 10),
+      buyer: userRegistered.id,
+      items: cart,
+      total: totalCart(),
+    };
+    const orderId = await createOrder(order);
+    return orderId.id;
+  };
 
   return (
     <CartContext.Provider
@@ -157,6 +174,7 @@ export const CartProvider = ({ defaultValue, children }) => {
         removeOneFromCart,
         totalCart,
         getItemsCount,
+        placeOrder,
       }}
     >
       {children}

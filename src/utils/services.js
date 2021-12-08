@@ -20,4 +20,20 @@ const getCategories = async () => {
   return await services.getCategories();
 };
 
-export { getProducts, getProduct, getBrands, getCategories };
+const createUser = async (user) => {
+  return await services.createUser(user);
+};
+
+const getUser = async (email) => {
+  return await services.getUser(email);
+};
+
+const createOrder = async (order) => {
+  return await services.createOrder(order);
+};
+
+const getOrders = async (userId) => {
+  return await services.getOrders(userId);
+};
+
+export { getProducts, getProduct, getBrands, getCategories, createUser, getUser, createOrder, getOrders };

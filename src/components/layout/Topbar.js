@@ -78,11 +78,7 @@ export default function Topbar(props) {
             </Form>
             <NavDropdown title="My profile" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#config" onClick={() => alert("work in progress")}>
-                Settings
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#" onClick={() => alert("work in progress")}>
-                Log out
+                My orders
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

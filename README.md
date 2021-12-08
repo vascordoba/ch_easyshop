@@ -34,3 +34,4 @@ You will also see any lint errors in the console.
 
 - react-bootstrap: components and styles library based on Bootstrap.js
 - react-app-rewire-alias: helper to define alias to import resources without the need to know the relative path
+- react-spinner-overlay: creates nice overlay and spinner components to show when the back end processing is taking some time

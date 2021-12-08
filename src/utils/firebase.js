@@ -84,9 +84,42 @@ const getCategories = async () => {
   return data;
 };
 
+const createUser = async (user) => {
+  const userId = addDoc(collection(db, "users"), user);
+  return userId;
+};
+
+const getUser = async (email) => {
+  const col = collection(db, "users");
+  console.log("GET USER COL", col);
+  let q = query(col, where("email", "==", email));
+  console.log("GET USER Q", q);
+  const querySnapshot = await getDocs(q);
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
+};
+
+const createOrder = async (order) => {
+  const orderId = addDoc(collection(db, "orders"), order);
+  return orderId;
+};
+
+const getOrders = async (userId) => {
+  let q = query(collection(db, "orders"), where("userId", "==", userId));
+  const querySnapshot = await getDocs(q);
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
+};
+
 //se ejecuta una sola vez para cargar los productos masivamente
 loadProductsIfEmpty();
 
-const services = { getProducts, getProduct, getBrands, getCategories, loadProductsIfEmpty };
+const services = { getProducts, getProduct, getBrands, getCategories, createUser, getUser, createOrder, getOrders };
 
 export default services;
