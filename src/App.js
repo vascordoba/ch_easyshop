@@ -12,6 +12,7 @@ import Catalog from "@components/catalog/Catalog";
 import Cart from "@components/cart/Cart";
 import ProductDetail from "@components/catalog/ProductDetail";
 import CartCheckout from "@components/cart/CartCheckout";
+import Orders from "@components/orders/Orders";
 
 function App() {
   const [brandFilter, setBrandFilter] = useState([]);
@@ -82,7 +83,7 @@ function App() {
                   <Route path="/detail/:prodId" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/checkout" element={<CartCheckout />} />
-                  <Route path="/orders" element={<CartCheckout />} />
+                  <Route path="/orders" element={<Orders />} />
                 </Routes>
               </Col>
             </Row>

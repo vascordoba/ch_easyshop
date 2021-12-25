@@ -28,7 +28,9 @@ You will also see any lint errors in the console.
 - The main is a `Catalog` of products that uses a `CatalogItem` to render each product, and a `ProductDetail` to navigate to the detailed spec of each product
 - When a product is added to the cart from the `Catalog`, it display a dismissable `Alert` indicating the result. When the stock of the unit is depleted (10 units per product), the alert informs the situation
 - The `Topbar` contains a `TopbarCart` component to inform the quantity of products already in the cart
-- The `Cart` component enables the review of the items to be purchased. Each item is rendered using a `CartItem` component.
+- The `Cart` component enables the review of the items to be purchased. Each item is rendered using a `CartItem` component. Additionally, there is a `CartSummary` component to display the cart totals and quantities. Also displays the button for cart checkout
+- The `CartCheckout` component displays the final state of the cart and the form to input the customer data to place the order
+- The `Orders` component enable users to search their onw orders by email address
 
 ### Additional libraries used
 

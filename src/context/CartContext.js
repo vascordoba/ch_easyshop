@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 
 import AlertContext from "@context/AlertContext";
-import { getUser, createUser, createOrder } from "../utils/services";
+import { getUser, createUser, createOrder, getOrders } from "../utils/services";
 const CartContext = createContext([]);
 
 export const CartProvider = ({ defaultValue, children }) => {
@@ -160,6 +160,18 @@ export const CartProvider = ({ defaultValue, children }) => {
     return orderId.id;
   };
 
+  const getUserOrders = async (userEmail) => {
+    const userExists = await getUser(userEmail);
+    if (userExists.length === 1) {
+      const user = userExists[0];
+      const orders = await getOrders(user.id);
+      return orders;
+    } else {
+      return [];
+    }
+
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -175,6 +187,7 @@ export const CartProvider = ({ defaultValue, children }) => {
         totalCart,
         getItemsCount,
         placeOrder,
+        getUserOrders
       }}
     >
       {children}

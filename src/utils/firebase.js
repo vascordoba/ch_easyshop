@@ -91,9 +91,7 @@ const createUser = async (user) => {
 
 const getUser = async (email) => {
   const col = collection(db, "users");
-  console.log("GET USER COL", col);
   let q = query(col, where("email", "==", email));
-  console.log("GET USER Q", q);
   const querySnapshot = await getDocs(q);
   const data = querySnapshot.docs.map((doc) => ({
     id: doc.id,
@@ -108,7 +106,7 @@ const createOrder = async (order) => {
 };
 
 const getOrders = async (userId) => {
-  let q = query(collection(db, "orders"), where("userId", "==", userId));
+  let q = query(collection(db, "orders"), where("buyer", "==", userId));
   const querySnapshot = await getDocs(q);
   const data = querySnapshot.docs.map((doc) => ({
     id: doc.id,
